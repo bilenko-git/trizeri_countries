@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; 
+}
+
+body {
+  margin: 20px;
+  font-size: 14px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #555; 
+}
+
+#phone:focus {
+    outline: none;
+}
+.hide {
+  display: none; 
+}
+
+.intl-tel-input {
+    display: flex;
+    align-items: center;
+}
+#phone {
+    margin-left: 10px;
+    cursor: inherit;
+    border: 0px;
+    font-family: inherit;
+    font-size: 100%;
+    color: inherit; 
+}
+.dial_code {
+    margin-left: 12px;
+}
+.country.preferred:hover{
+    background-color: rgba(0,0,0,0.05);
+}

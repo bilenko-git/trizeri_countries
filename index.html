@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="intl-tel-input allow-dropdown">
+			<div class="flag-container">
+				<div class="selected-flag" v-on:click="hide_country_list = !hide_country_list">
+					<div class="iti-flag" v-bind:class="countries[countryDef].iso2"></div>
+					<div class="dial_code">+ {{ countries[countryDef].dialCode }}</div>
+					<div class="iti-arrow"></div>
+				</div>
+
+				<ul class="country-list dropup" v-bind:class="{'hide' : hide_country_list}"> 
+					<li class="country preferred" v-for="country in countries"
+						v-on:click="countryDef = country.iso2, hide_country_list = true, phoneVal = ''">
+
+						<div class="flag-box">
+							<div class="iti-flag" v-bind:class="country.iso2"></div>
+						</div>
+
+						<span class="country-name">{{ country.name }}</span>
+						<span class="dial-code">+ {{ country.dialCode }}</span>
+					</li>
+				</ul>
+			</div>
+
+			<input id="phone" type="tel" autocomplete="off" 
+				v-bind:value="phoneVal" 
+				v-bind:placeholder="countries[countryDef].mask"
+				v-on:keyup="press(countries[countryDef].mask, $event)"
+				v-model="phoneVal">
+		</div>
+
+		<link rel="stylesheet" href="css/countries.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/lib/vue.js"></script>
+
+		<script src="js/countriesAll.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
